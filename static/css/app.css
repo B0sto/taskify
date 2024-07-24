@@ -1,0 +1,30 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-fluid {
+    padding-inline: 80px !important;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+.navbar-brand img, .footer img {
+    height: 25px;
+    margin-right: 5px;
+    border-radius: 50%;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>verification</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<div class="bg-img">
+    <div class="content">
+        <header>Verification</header>
+        <p class="verif_mess">Verification code has been sent to {{ mail }} address</p>
+        {% if wrongmessage %}
+            <p style="color: white">{{ wrongmessage }}</p>
+        {% endif %}
+        <form action="http://127.0.0.1:5000/registration" method="POST" class="space">
+            <div class="field">
+                <input type="hidden" value="{{ mail }}" name="mail">
+                <span></span>
+                <input type="number" placeholder="Enter code" name="code">
+            </div>
+            <div class="field space">
+                <input type="submit" value="Submit"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

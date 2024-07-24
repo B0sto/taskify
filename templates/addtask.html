@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Add Task - Taskify
+{% endblock %}
+
+{% block content %}
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            Wrong input
+        </div>
+    {% endif %}
+    <div class="card">
+        <div class="card-header">
+            Add New Task
+        </div>
+        <div class="card-body">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="task" class="form-label">Task</label>
+                    <input type="text" class="form-control" id="task" name="task" placeholder="Enter your task">
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" name="date">
+                </div>
+                <div class="mb-3">
+                    <label for="hour" class="form-label">Hour</label>
+                    <input type="time" class="form-control" id="hour" name="hour">
+                </div>
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

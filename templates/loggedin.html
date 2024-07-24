@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1 class="text-center">Welcome Back {{ user }}!</h1>
+
+    {% if tasks|length > 0 %}
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            {% for task in tasks %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-tasks"></i> Task {{ loop.index }} - {{ task.task }}
+                            </h5>
+                            <p class="card-text">
+                                <i class="far fa-calendar-alt"></i> Date: {{ task.date }} |
+                                <i class="far fa-clock"></i> Hour: {{ task.hour }} |
+                                <i class="fas fa-sun"></i> Weather: {{ task.weather }}°C |
+                                <i class="far fa-calendar-check"></i> Holiday: {{ task.holiday }}
+                            </p>
+                            <form method="POST" class="d-flex justify-content-center">
+                                <input type="hidden" name="taskid" value="{{ task.id }}">
+                                <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center mt-4">There are no tasks anymore. Good job!</p>
+    {% endif %}
+
+    <h3 class="text-center mt-5">Hottest News Today</h3>
+    <div id="news-container"></div>
+{% endblock %}
